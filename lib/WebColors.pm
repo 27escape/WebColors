@@ -29,7 +29,7 @@ See Also
 
 package WebColors;
 
-use 5.014;
+use 5.0.4;
 use warnings;
 use strict;
 use Exporter;
