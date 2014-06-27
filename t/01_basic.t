@@ -18,7 +18,7 @@ kevin mulholland, moodfarm@cpan.org
 use v5.10;
 use strict;
 use warnings;
-use Test::More tests => 14;
+use Test::More tests => 18;
 
 BEGIN { use_ok('WebColors'); }
 
@@ -47,10 +47,22 @@ ok( "$r-$g-$b" eq "0-100-0", "% lime is OK") ;
 my $name = rgb_to_colorname( 0, 255, 255) ;
 ok( $name eq "aqua", "rgb to aqua is OK") ;
 $name = hex_to_colorname( '00ff00') ;
-ok( $name eq "lime", "rgb to lime is OK") ;
+ok( $name eq "lime", "($name) hex to lime is OK") ;
 $name = rgb_percent_to_colorname( 100, 100, 0) ;
 ok( $name eq "yellow", "% yellow is OK") ;
 
 # lets use the actual percentages from [ 50,  205, 50 ]
 $name = rgb_percent_to_colorname( 19.6, 80.39, 19.6) ;  
 ok( $name eq "limegreen", "% likegreen is OK") ;
+
+($r, $g, $b) = to_rgb( '008000') ;
+ok( "$r-$g-$b" eq "0-128-0", "to_rgb 008000 is green is OK") ;
+
+($r, $g, $b) = to_rgb( '0ff') ;
+ok( "$r-$g-$b" eq "0-255-255", "to_rgb 0ff is yellow is OK") ;
+
+($r, $g, $b) = to_rgb( '#FF0000') ;
+ok( "$r-$g-$b" eq "255-0-0", "to_rgb #FF0000 is red is OK") ;
+
+($r, $g, $b) = to_rgb( 'blue') ;
+ok( "$r-$g-$b" eq "0-0-255", "to_rgb found blue OK") ;

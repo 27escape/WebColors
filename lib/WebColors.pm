@@ -41,6 +41,7 @@ use vars qw( @EXPORT @ISA);
 # namespace
 @EXPORT = qw(
     list_webcolors
+    to_rgb
     colorname_to_hex
     colorname_to_rgb
     colorname_to_rgb_percent
@@ -238,7 +239,60 @@ list the colors covered in this module
 =cut
 
 sub list_webcolors {
-    return sort keys %web_colors ;
+    return sort keys %web_colors;
+}
+
+
+# ----------------------------------------------------------------------------
+
+# get rgb values from a hex triplet
+
+sub _hex_to_rgb {
+    my ($hex) = @_;
+
+    $hex =~ s/^#//;
+    $hex = lc($hex);
+
+    my ( $r, $g, $b ) ;
+    if( $hex =~ /^[0-9a-f]{6}$/){
+        ( $r, $g, $b ) = ($hex  =~ /(\w{2})/g);
+    } elsif( $hex =~ /^[0-9a-f]{3}$/){
+        ( $r, $g, $b ) = ( $hex =~ /(\w)/g);
+        # double up to make the colors correct
+        ( $r, $g, $b ) = ( "$r$r", "$g$g", "$b$b" ) ;
+    } else {
+        return (undef, undef, undef) ;
+    }
+
+    return ( hex($r), hex($g), hex($b) );
+}
+
+# ----------------------------------------------------------------------------
+
+=item to_rbg
+
+get rgb for a hex triplet, or a colorname. if the hex value is only 3 characters
+then it wil be expanded to 6
+
+    my ($r,$g,$b) = to_rgb( 'ff00ab') ;
+    ($r,$g,$b) = to_rgb( 'red') ;
+    ($r,$g,$b) = to_rgb( 'abc') ;
+
+entries will be null if there is no match
+
+=cut
+
+sub to_rgb {
+    my ($name) = @_;
+    # first up try as hex
+    my ( $r, $g, $b ) = _hex_to_rgb( $name);
+
+    # try as a name then
+    if ( !defined $r) {
+        ( $r, $g, $b ) = colorname_to_rgb($name);
+    }
+
+    return ( $r, $g, $b );
 }
 
 # ----------------------------------------------------------------------------
@@ -311,9 +365,9 @@ sub colorname_to_rgb_percent {
 # ----------------------------------------------------------------------------
 # test if a value is almost +/- 1 another value
 sub _almost {
-    my ($a, $b) = @_ ;
+    my ( $a, $b ) = @_;
 
-    ( $a == $b || ($a+1) == $b || ($a-1 == $b)) ? 1 : 0 ;
+    ( $a == $b || ( $a + 1 ) == $b || ( $a - 1 == $b ) ) ? 1 : 0;
 }
 
 # ----------------------------------------------------------------------------
@@ -329,23 +383,21 @@ returns null if there is no match
 =cut
 
 sub rgb_to_colorname {
-    my ($r, $g, $b) = @_ ;
+    my ( $r, $g, $b ) = @_;
 
-    my $color ;
-    foreach my $c (sort keys %web_colors) {
+    my $color;
+    foreach my $c ( sort keys %web_colors ) {
+
         # no need for fancy compares
-        my ($r1, $g1, $b1) = @{$web_colors{$c}} ;
-        # next if(  $r != $r1) ;
-        # next if(  $g != $g1) ;
-        # if blue matches then we are all done
-        # if(  $b == $b1) {
-        if( _almost( $r, $r1) && _almost( $g, $g1) && _almost( $b, $b1)) {
-            $color = $c ;
-            last ;
+        my ( $r1, $g1, $b1 ) = @{ $web_colors{$c} };
+
+        if ( _almost( $r, $r1 ) && _almost( $g, $g1 ) && _almost( $b, $b1 ) ) {
+            $color = $c;
+            last;
         }
     }
 
-    return $color ;
+    return $color;
 }
 
 # ----------------------------------------------------------------------------
@@ -361,9 +413,9 @@ returns null if there is no match
 =cut
 
 sub rgb_percent_to_colorname {
-    my ($r, $g, $b) = @_ ;
+    my ( $r, $g, $b ) = @_;
 
-    return rgb_to_colorname( int($r * 255/100), int($g * 255/100), int($b * 255/100)) ;
+    return rgb_to_colorname( int( $r * 255 / 100 ), int( $g * 255 / 100 ), int( $b * 255 / 100 ) );
 }
 
 # ----------------------------------------------------------------------------
@@ -378,13 +430,12 @@ returns null if there is no match
 
 =cut
 
-sub hex_to_colorname {    my ($hex) = @_ ;
+sub hex_to_colorname {
+    my ($hex) = @_;
 
-    $hex =~ s/^#// ;
-    $hex = lc( $hex) ;
-    my ($r, $g, $b) = split( /[0-9A-F]{2}/, $hex) ;
+    my ($r, $g, $b) = _hex_to_rgb( $hex) ;
 
-    return rgb_to_colorname( hex($r), hex($g), hex($b)) ;
+    return rgb_to_colorname( $r, $g, $b );
 }
 
 =back
