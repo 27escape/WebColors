@@ -2,10 +2,10 @@
 
 ## SYNOPSIS
 
-use 5.10.0 ;
-use strict ;
-use warnings ;
-use WebColors;
+    use 5.10.0 ;
+    use strict ;
+    use warnings ;
+    use WebColors;
 
     my ($r, $g, $b) = colorname_to_rgb( 'goldenrod') ;
 
