@@ -54,6 +54,8 @@ use vars qw( @EXPORT @ISA) ;
     rgb_to_colorname
     hex_to_colorname
     rgb_percent_to_colorname
+    inverse_rgb
+    luminance
     ) ;
 
 # ----------------------------------------------------------------------------
@@ -741,6 +743,63 @@ sub hex_to_colorname
 
     return rgb_to_colorname( $r, $g, $b ) ;
 }
+
+# ----------------------------------------------------------------------------
+
+=item inverse_rgb
+
+Get the inverse of the RGB values
+
+    my ($i_r, $i_g, $i_b) = inverse_rgb( 0xff, 0x45, 0x34) ;
+
+=cut
+
+sub inverse_rgb
+{
+    my ( $r, $g, $b ) = @_ ;
+
+    return ( 255 - $r, 255 - $g, 255 - $b ) ;
+}
+
+# ----------------------------------------------------------------------------
+# source was http://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color
+
+=item luminance
+
+Calculate the luminance of an rgb value
+
+Rough calculation using Photometric/digital ITU-R:
+
+Y = 0.2126 R + 0.7152 G + 0.0722 B
+
+    my $luma = luminance( to_rgb( 'green')) ;
+
+=cut
+
+sub luminance
+{
+    my ( $r, $g, $b ) = @_ ;
+
+    return int( ( 0.2126 * $r ) + ( 0.7152 * $g ) + ( 0.0722 * $b ) ) ;
+}
+
+# # ----------------------------------------------------------------------------
+
+# =item approx_luminance
+
+# Calculate the approximate luminance of an rgb value, rough/ready/fast
+
+#     my $luma = approx_luminance( to_rgb( 'green')) ;
+
+# =cut
+
+# sub approx_luminance
+# {
+#     my ( $r, $g, $b ) = @_ ;
+
+#     return int( ( ( 2 * $r ) + ( 3 * $g ) + ($b) ) / 6 ) ;
+# }
+
 
 =back
 

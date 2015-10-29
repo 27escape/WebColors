@@ -18,7 +18,7 @@ kevin mulholland, moodfarm@cpan.org
 use v5.10;
 use strict;
 use warnings;
-use Test::More tests => 18;
+use Test::More tests => 23;
 
 BEGIN { use_ok('WebColors'); }
 
@@ -66,3 +66,17 @@ ok( "$r-$g-$b" eq "255-0-0", "to_rgb #FF0000 is red is OK") ;
 
 ($r, $g, $b) = to_rgb( 'blue') ;
 ok( "$r-$g-$b" eq "0-0-255", "to_rgb found blue OK") ;
+
+my ($ir, $ig, $ib) = inverse_rgb(to_rgb( 'white')) ;
+ok( "$ir-$ig-$ib" eq "0-0-0", "inverse_rgb white to black OK") ;
+($ir, $ig, $ib) = inverse_rgb(to_rgb( 'black')) ;
+ok( "$ir-$ig-$ib" eq "255-255-255", "inverse_rgb black to white OK") ;
+
+my $y = luminance( to_rgb( 'white')) ;
+ok( $y >= 254, "White is bright luminace") ;
+
+$y = luminance( to_rgb( 'grey')) ;
+ok( $y == 128, "Grey is middle luminace") ;
+
+$y = luminance( to_rgb( 'black')) ;
+ok( $y == 0 , "Black has no luminace") ;
