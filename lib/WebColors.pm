@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-WebColors
+WebColors - Library for WebColors.
 
 =head1 SYNOPSIS
 
