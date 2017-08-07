@@ -18,7 +18,7 @@ kevin mulholland, moodfarm@cpan.org
 use v5.10;
 use strict;
 use warnings;
-use Test::More tests => 23;
+use Test::More tests => 27;
 
 BEGIN { use_ok('WebColors'); }
 
@@ -52,7 +52,7 @@ $name = rgb_percent_to_colorname( 100, 100, 0) ;
 ok( $name eq "yellow", "% yellow is OK") ;
 
 # lets use the actual percentages from [ 50,  205, 50 ]
-$name = rgb_percent_to_colorname( 19.6, 80.39, 19.6) ;  
+$name = rgb_percent_to_colorname( 19.6, 80.39, 19.6) ;
 ok( $name eq "limegreen", "% likegreen is OK") ;
 
 ($r, $g, $b) = to_rgb( '008000') ;
@@ -80,3 +80,15 @@ ok( $y == 128, "Grey is middle luminace") ;
 
 $y = luminance( to_rgb( 'black')) ;
 ok( $y == 0 , "Black has no luminace") ;
+
+# oc colors and variations
+$hex = colorname_to_hex( 'oc-indigo-2') ;
+ok( $hex eq 'bac8ff', "open color name") ;
+$hex = colorname_to_hex( 'oc-indigo2') ;
+ok( $hex eq 'bac8ff', "open colors variant 1") ;
+$hex = colorname_to_hex( 'ocindigo2') ;
+ok( $hex eq 'bac8ff', "open colors variant 2") ;
+$hex = colorname_to_hex( 'oc-indigo2') ;
+ok( $hex eq 'bac8ff', "open colors variant 3") ;
+
+

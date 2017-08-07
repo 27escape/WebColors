@@ -19,15 +19,15 @@ Get either the hex triplet value or the rgb values for a HTML named color.
 
 Values have been taken from https://en.wikipedia.org/wiki/HTML_color_names#HTML_color_names
 
-For me I want this module so that I can use the named colours to 
-extend Device::Hynpocube so that it can use the full set of named colors it 
+For me I want this module so that I can use the named colours to
+extend Device::Hynpocube so that it can use the full set of named colors it
 is also used in Device::BlinkStick
 
 Google material colors have spaces removed and their numerical values added, so
 
 Red 400 becomes red400, with accents Deep Purple A100 becomes deeppurplea100
 
-See Also 
+See Also
 
 Google material colors L<http://www.google.com/design/spec/style/color.html>
 
@@ -65,6 +65,7 @@ my %web_colors = (
     # basic
     black   => [ 0,   0,   0 ],
     silver  => [ 192, 192, 192 ],
+    grey    => [ 128, 128, 128 ],
     gray    => [ 128, 128, 128 ],
     white   => [ 255, 255, 255 ],
     maroon  => [ 128, 0,   0 ],
@@ -106,6 +107,7 @@ my %web_colors = (
     darkcyan             => [ 0,   139, 139 ],
     darkgoldenrod        => [ 184, 134, 11 ],
     darkgray             => [ 169, 169, 169 ],
+    darkgrey             => [ 169, 169, 169 ],
     darkgreen            => [ 0,   100, 0 ],
     darkgrey             => [ 169, 169, 169 ],
     darkkhaki            => [ 189, 183, 107 ],
@@ -135,6 +137,7 @@ my %web_colors = (
     gold                 => [ 255, 215, 0 ],
     goldenrod            => [ 218, 165, 32 ],
     gray                 => [ 128, 128, 128 ],
+    grey                 => [ 128, 128, 128 ],
     green                => [ 0,   128, 0 ],
     greenyellow          => [ 173, 255, 47 ],
     grey                 => [ 128, 128, 128 ],
@@ -153,8 +156,8 @@ my %web_colors = (
     lightcyan            => [ 224, 255, 255 ],
     lightgoldenrodyellow => [ 250, 250, 210 ],
     lightgray            => [ 211, 211, 211 ],
-    lightgreen           => [ 144, 238, 144 ],
     lightgrey            => [ 211, 211, 211 ],
+    lightgreen           => [ 144, 238, 144 ],
     lightpink            => [ 255, 182, 193 ],
     lightsalmon          => [ 255, 160, 122 ],
     lightseagreen        => [ 32,  178, 170 ],
@@ -229,6 +232,8 @@ my %web_colors = (
     whitesmoke           => [ 245, 245, 245 ],
     yellow               => [ 255, 255, 0 ],
     yellowgreen          => [ 154, 205, 50 ],
+
+# google material colors from http://www.google.com/design/spec/style/color.html
 
     red50   => [ 0xff, 0xeb, 0xee ],
     red100  => [ 0xff, 0xcd, 0xd2 ],
@@ -492,6 +497,17 @@ my %web_colors = (
     grey800 => [ 0x42, 0x42, 0x42 ],
     grey900 => [ 0x21, 0x21, 0x21 ],
 
+    gray50  => [ 0xfa, 0xfa, 0xfa ],
+    gray100 => [ 0xf5, 0xf5, 0xf5 ],
+    gray200 => [ 0xee, 0xee, 0xee ],
+    gray300 => [ 0xe0, 0xe0, 0xe0 ],
+    gray400 => [ 0xbd, 0xbd, 0xbd ],
+    gray500 => [ 0x9e, 0x9e, 0x9e ],
+    gray600 => [ 0x75, 0x75, 0x75 ],
+    gray700 => [ 0x61, 0x61, 0x61 ],
+    gray800 => [ 0x42, 0x42, 0x42 ],
+    gray900 => [ 0x21, 0x21, 0x21 ],
+
     bluegrey50  => [ 0xec, 0xef, 0xf1 ],
     bluegrey100 => [ 0xcf, 0xd8, 0xdc ],
     bluegrey200 => [ 0xb0, 0xbe, 0xc5 ],
@@ -502,6 +518,160 @@ my %web_colors = (
     bluegrey700 => [ 0x45, 0x5a, 0x64 ],
     bluegrey800 => [ 0x37, 0x47, 0x4f ],
     bluegrey900 => [ 0x26, 0x32, 0x38 ],
+
+    bluegray50  => [ 0xec, 0xef, 0xf1 ],
+    bluegray100 => [ 0xcf, 0xd8, 0xdc ],
+    bluegray200 => [ 0xb0, 0xbe, 0xc5 ],
+    bluegray300 => [ 0x90, 0xa4, 0xae ],
+    bluegray400 => [ 0x78, 0x90, 0x9c ],
+    bluegray500 => [ 0x60, 0x7d, 0x8b ],
+    bluegray600 => [ 0x54, 0x6e, 0x7a ],
+    bluegray700 => [ 0x45, 0x5a, 0x64 ],
+    bluegray800 => [ 0x37, 0x47, 0x4f ],
+    bluegray900 => [ 0x26, 0x32, 0x38 ],
+
+    # open colors https://yeun.github.io/open-color/
+    # variations in names handled in colorname_to_rgb
+    'oc-gray-0'   => [ 0xf8, 0xf9, 0xfa ],
+    'oc-gray-1'   => [ 0xf1, 0xf3, 0xf5 ],
+    'oc-gray-2'   => [ 0xe9, 0xec, 0xef ],
+    'oc-gray-3'   => [ 0xde, 0xe2, 0xe6 ],
+    'oc-gray-4'   => [ 0xce, 0xd4, 0xda ],
+    'oc-gray-5'   => [ 0xad, 0xb5, 0xbd ],
+    'oc-gray-6'   => [ 0x86, 0x8e, 0x96 ],
+    'oc-gray-7'   => [ 0x49, 0x50, 0x57 ],
+    'oc-gray-8'   => [ 0x34, 0x3a, 0x40 ],
+    'oc-gray-9'   => [ 0x21, 0x25, 0x29 ],
+    'oc-grey-1'   => [ 0xf1, 0xf3, 0xf5 ],
+    'oc-grey-2'   => [ 0xe9, 0xec, 0xef ],
+    'oc-grey-3'   => [ 0xde, 0xe2, 0xe6 ],
+    'oc-grey-4'   => [ 0xce, 0xd4, 0xda ],
+    'oc-grey-5'   => [ 0xad, 0xb5, 0xbd ],
+    'oc-grey-6'   => [ 0x86, 0x8e, 0x96 ],
+    'oc-grey-7'   => [ 0x49, 0x50, 0x57 ],
+    'oc-grey-8'   => [ 0x34, 0x3a, 0x40 ],
+    'oc-grey-9'   => [ 0x21, 0x25, 0x29 ],
+    'oc-red-0'    => [ 0xff, 0xf5, 0xf5 ],
+    'oc-red-1'    => [ 0xff, 0xe3, 0xe3 ],
+    'oc-red-2'    => [ 0xff, 0xc9, 0xc9 ],
+    'oc-red-3'    => [ 0xff, 0xa8, 0xa8 ],
+    'oc-red-4'    => [ 0xff, 0x87, 0x87 ],
+    'oc-red-5'    => [ 0xff, 0x6b, 0x6b ],
+    'oc-red-6'    => [ 0xfa, 0x52, 0x52 ],
+    'oc-red-7'    => [ 0xf0, 0x3e, 0x3e ],
+    'oc-red-8'    => [ 0xe0, 0x31, 0x31 ],
+    'oc-red-9'    => [ 0xc9, 0x2a, 0x2a ],
+    'oc-pink-0'   => [ 0xff, 0xf0, 0xf6 ],
+    'oc-pink-1'   => [ 0xff, 0xde, 0xeb ],
+    'oc-pink-2'   => [ 0xfc, 0xc2, 0xd7 ],
+    'oc-pink-3'   => [ 0xfa, 0xa2, 0xc1 ],
+    'oc-pink-4'   => [ 0xf7, 0x83, 0xac ],
+    'oc-pink-5'   => [ 0xf0, 0x65, 0x95 ],
+    'oc-pink-6'   => [ 0xe6, 0x49, 0x80 ],
+    'oc-pink-7'   => [ 0xd6, 0x33, 0x6c ],
+    'oc-pink-8'   => [ 0xc2, 0x25, 0x5c ],
+    'oc-pink-9'   => [ 0xa6, 0x1e, 0x4d ],
+    'oc-grape-0'  => [ 0xf8, 0xf0, 0xfc ],
+    'oc-grape-1'  => [ 0xf3, 0xd9, 0xfa ],
+    'oc-grape-2'  => [ 0xee, 0xbe, 0xfa ],
+    'oc-grape-3'  => [ 0xe5, 0x99, 0xf7 ],
+    'oc-grape-4'  => [ 0xda, 0x77, 0xf2 ],
+    'oc-grape-5'  => [ 0xcc, 0x5d, 0xe8 ],
+    'oc-grape-6'  => [ 0xbe, 0x4b, 0xdb ],
+    'oc-grape-7'  => [ 0xae, 0x3e, 0xc9 ],
+    'oc-grape-8'  => [ 0x9c, 0x36, 0xb5 ],
+    'oc-grape-9'  => [ 0x86, 0x2e, 0x9c ],
+    'oc-violet-0' => [ 0xf3, 0xf0, 0xff ],
+    'oc-violet-1' => [ 0xe5, 0xdb, 0xff ],
+    'oc-violet-2' => [ 0xd0, 0xbf, 0xff ],
+    'oc-violet-3' => [ 0xb1, 0x97, 0xfc ],
+    'oc-violet-4' => [ 0x97, 0x75, 0xfa ],
+    'oc-violet-5' => [ 0x84, 0x5e, 0xf7 ],
+    'oc-violet-6' => [ 0x79, 0x50, 0xf2 ],
+    'oc-violet-7' => [ 0x70, 0x48, 0xe8 ],
+    'oc-violet-8' => [ 0x67, 0x41, 0xd9 ],
+    'oc-violet-9' => [ 0x5f, 0x3d, 0xc4 ],
+    'oc-indigo-0' => [ 0xed, 0xf2, 0xff ],
+    'oc-indigo-1' => [ 0xdb, 0xe4, 0xff ],
+    'oc-indigo-2' => [ 0xba, 0xc8, 0xff ],
+    'oc-indigo-3' => [ 0x91, 0xa7, 0xff ],
+    'oc-indigo-4' => [ 0x74, 0x8f, 0xfc ],
+    'oc-indigo-5' => [ 0x5c, 0x7c, 0xfa ],
+    'oc-indigo-6' => [ 0x4c, 0x6e, 0xf5 ],
+    'oc-indigo-7' => [ 0x42, 0x63, 0xeb ],
+    'oc-indigo-8' => [ 0x3b, 0x5b, 0xdb ],
+    'oc-indigo-9' => [ 0x36, 0x4f, 0xc7 ],
+    'oc-blue-0'   => [ 0xe8, 0xf7, 0xff ],
+    'oc-blue-1'   => [ 0xcc, 0xed, 0xff ],
+    'oc-blue-2'   => [ 0xa3, 0xda, 0xff ],
+    'oc-blue-3'   => [ 0x72, 0xc3, 0xfc ],
+    'oc-blue-4'   => [ 0x4d, 0xad, 0xf7 ],
+    'oc-blue-5'   => [ 0x32, 0x9a, 0xf0 ],
+    'oc-blue-6'   => [ 0x22, 0x8a, 0xe6 ],
+    'oc-blue-7'   => [ 0x1c, 0x7c, 0xd6 ],
+    'oc-blue-8'   => [ 0x1b, 0x6e, 0xc2 ],
+    'oc-blue-9'   => [ 0x18, 0x62, 0xab ],
+    'oc-cyan-0'   => [ 0xe3, 0xfa, 0xfc ],
+    'oc-cyan-1'   => [ 0xc5, 0xf6, 0xfa ],
+    'oc-cyan-2'   => [ 0x99, 0xe9, 0xf2 ],
+    'oc-cyan-3'   => [ 0x66, 0xd9, 0xe8 ],
+    'oc-cyan-4'   => [ 0x3b, 0xc9, 0xdb ],
+    'oc-cyan-5'   => [ 0x22, 0xb8, 0xcf ],
+    'oc-cyan-6'   => [ 0x15, 0xaa, 0xbf ],
+    'oc-cyan-7'   => [ 0x10, 0x98, 0xad ],
+    'oc-cyan-8'   => [ 0x0c, 0x85, 0x99 ],
+    'oc-cyan-9'   => [ 0x0b, 0x72, 0x85 ],
+    'oc-teal-0'   => [ 0xe6, 0xfc, 0xf5 ],
+    'oc-teal-1'   => [ 0xc3, 0xfa, 0xe8 ],
+    'oc-teal-2'   => [ 0x96, 0xf2, 0xd7 ],
+    'oc-teal-3'   => [ 0x63, 0xe6, 0xbe ],
+    'oc-teal-4'   => [ 0x38, 0xd9, 0xa9 ],
+    'oc-teal-5'   => [ 0x20, 0xc9, 0x97 ],
+    'oc-teal-6'   => [ 0x12, 0xb8, 0x86 ],
+    'oc-teal-7'   => [ 0x0c, 0xa6, 0x78 ],
+    'oc-teal-8'   => [ 0x09, 0x92, 0x68 ],
+    'oc-teal-9'   => [ 0x08, 0x7f, 0x5b ],
+    'oc-green-0'  => [ 0xeb, 0xfb, 0xee ],
+    'oc-green-1'  => [ 0xd3, 0xf9, 0xd8 ],
+    'oc-green-2'  => [ 0xb2, 0xf2, 0xbb ],
+    'oc-green-3'  => [ 0x8c, 0xe9, 0x9a ],
+    'oc-green-4'  => [ 0x69, 0xdb, 0x7c ],
+    'oc-green-5'  => [ 0x51, 0xcf, 0x66 ],
+    'oc-green-6'  => [ 0x40, 0xc0, 0x57 ],
+    'oc-green-7'  => [ 0x37, 0xb2, 0x4d ],
+    'oc-green-8'  => [ 0x2f, 0x9e, 0x44 ],
+    'oc-green-9'  => [ 0x2b, 0x8a, 0x3e ],
+    'oc-lime-0'   => [ 0xf4, 0xfc, 0xe3 ],
+    'oc-lime-1'   => [ 0xe9, 0xfa, 0xc8 ],
+    'oc-lime-2'   => [ 0xd8, 0xf5, 0xa2 ],
+    'oc-lime-3'   => [ 0xc0, 0xeb, 0x75 ],
+    'oc-lime-4'   => [ 0xa9, 0xe3, 0x4b ],
+    'oc-lime-5'   => [ 0x94, 0xd8, 0x2d ],
+    'oc-lime-6'   => [ 0x82, 0xc9, 0x1e ],
+    'oc-lime-7'   => [ 0x74, 0xb8, 0x16 ],
+    'oc-lime-8'   => [ 0x66, 0xa8, 0x0f ],
+    'oc-lime-9'   => [ 0x5c, 0x94, 0x0d ],
+    'oc-yellow-0' => [ 0xff, 0xf9, 0xdb ],
+    'oc-yellow-1' => [ 0xff, 0xf3, 0xbf ],
+    'oc-yellow-2' => [ 0xff, 0xec, 0x99 ],
+    'oc-yellow-3' => [ 0xff, 0xe0, 0x66 ],
+    'oc-yellow-4' => [ 0xff, 0xd4, 0x3b ],
+    'oc-yellow-5' => [ 0xfc, 0xc4, 0x19 ],
+    'oc-yellow-6' => [ 0xfa, 0xb0, 0x05 ],
+    'oc-yellow-7' => [ 0xf5, 0x9f, 0x00 ],
+    'oc-yellow-8' => [ 0xf0, 0x8c, 0x00 ],
+    'oc-yellow-9' => [ 0xe6, 0x77, 0x00 ],
+    'oc-orange-0' => [ 0xff, 0xf4, 0xe6 ],
+    'oc-orange-1' => [ 0xff, 0xe8, 0xcc ],
+    'oc-orange-2' => [ 0xff, 0xd8, 0xa8 ],
+    'oc-orange-3' => [ 0xff, 0xc0, 0x78 ],
+    'oc-orange-4' => [ 0xff, 0xa9, 0x4d ],
+    'oc-orange-5' => [ 0xff, 0x92, 0x2b ],
+    'oc-orange-6' => [ 0xfd, 0x7e, 0x14 ],
+    'oc-orange-7' => [ 0xf7, 0x67, 0x07 ],
+    'oc-orange-8' => [ 0xe8, 0x59, 0x0c ],
+    'oc-orange-9' => [ 0xd9, 0x48, 0x0f ],
+
 ) ;
 
 =head1 Public Functions
@@ -589,8 +759,10 @@ get the rgb values 0..255 to match a color
     my ($r, $g, $b) = colorname_to_rgb( 'goldenrod') ;
 
     # get a material color
-
     ($r, $g, $b) = colorname_to_rgb( 'bluegrey500') ;
+
+    # open colors
+    ($r, $g, $b) = colorname_to_rgb( 'oc-lime-5') ;
 
 entries will be null if there is no match
 
@@ -600,8 +772,15 @@ sub colorname_to_rgb
 {
     my ($name) = @_ ;
 
+    $name = lc($name) ;
+
+    # allow variations on open color names
+    $name =~ s/^oc(\w+)(\d)$/oc-$1-$2/ ;
+    $name =~ s/^oc(\w+)-(\d)$/oc-$1-$2/ ;
+    $name =~ s/^oc-(\w+)(\d)$/oc-$1-$2/ ;
+
     # deref the arraryref
-    my $rgb = $web_colors{ lc($name) } ;
+    my $rgb = $web_colors{ $name } ;
 
     $rgb = [ undef, undef, undef ] if ( !$rgb ) ;
     return @$rgb ;
@@ -616,7 +795,6 @@ get the color value as a hex triplet '12ffee' to match a color
     my $hex => colorname_to_hex( 'darkslategray') ;
 
     # get a material color, accented red
-
     $hex => colorname_to_hex( 'reda300') ;
 
 entries will be null if there is no match
@@ -626,6 +804,7 @@ entries will be null if there is no match
 sub colorname_to_hex
 {
     my ($name) = @_ ;
+    $name =~ s/grey/gray/ ;
     my @c = colorname_to_rgb($name) ;
     my $str ;
     $str = sprintf( "%02x%02x%02x", $c[0], $c[1], $c[2] )
