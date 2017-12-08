@@ -27,11 +27,15 @@ Google material colors have spaces removed and their numerical values added, so
 
 Red 400 becomes red400, with accents Deep Purple A100 becomes deeppurplea100
 
+Open color names have been included, "RED 1" would be used as oc-red-1
+
+A few interesting pantone colors have been added, because I like them, the best way to find out what is available is to use the list_webcolors function.
+
 See Also
 
-Google material colors L<http://www.google.com/design/spec/style/color.html>
-
-L<Color::Mix>
+* Google material colors <http://www.google.com/design/spec/style/color.html>
+* Open color <https://yeun.github.io/open-color/>
+* L<Color::Mix>
 
 =cut
 
@@ -1041,7 +1045,7 @@ sub luminance
 
 =item lighten
 
-lighten a color by an optional amount, returns a hex color string
+lighten a color by an optional amount, returns a hex color string,
 amount to adjust is a multiple of 32
 
     my $hex = lighten( 'goldenrod', 3) ;
@@ -1058,9 +1062,10 @@ sub lighten
 }
 
 # -----------------------------------------------------------------------------
+
 =item darken
 
-darken a color by an optional amount, returns a hex color string
+darken a color by an optional amount, returns a hex color string,
 amount to adjust is a multiple of 32
 
 
