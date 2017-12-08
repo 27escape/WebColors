@@ -15,16 +15,18 @@ Get either the hex triplet value or the rgb values for a HTML named color.
 
 Values have been taken from https://en.wikipedia.org/wiki/HTML_color_names#HTML_color_names
 
-For me I want this module so that I can use the named colours to extend Device::Hynpocube so that it can use the full set of named colors
-it is also used in Device::BlinkStick
+For me I want this module so that I can use the named colours to extend Device::Hynpocube so that it can use the full set of named colors it is also used in Device::BlinkStick
 
-Google material colors have spaces removed and their numerical values added, so
+Google material colors have spaces removed and their numerical values added, so Red 400 becomes red400, with accents Deep Purple A100 becomes deeppurplea100
 
-Red 400 becomes red400, with accents Deep Purple A100 becomes deeppurplea100
+Open color names have been included, "RED 1" would be used as oc-red-1
+
+A few interesting pantone colors have been added, because I like them, the best way to find out what is available is to use the list_webcolors function.
 
 See Also
 
-Google material colors <http://www.google.com/design/spec/style/color.html>
+* Google material colors <http://www.google.com/design/spec/style/color.html>
+* Open color <https://yeun.github.io/open-color/>
 
 ## Public Functions
 
@@ -101,3 +103,17 @@ match a name from a hex triplet, matches within +/-1 of the value
 returns null if there is no match
 
 
+### lighten
+
+lighten a color by an optional amount, returns a hex color string
+amount to adjust is a multiple of 32
+
+    my $hex = lighten( 'goldenrod', 3) ;
+
+### darken
+
+darken a color by an optional amount, returns a hex color string
+amount to adjust is a multiple of 32
+
+
+    my $hex = darken( 'goldenrod', 2) ;
