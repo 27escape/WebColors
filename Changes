@@ -1,3 +1,7 @@
+
+0.4.8
+    * adding tailwindcss.com color names, they only work well with HTML
+    * adding perl App::ColorNamer color names
 0.4.7 2017-12-08
     * adding interesting pantone colors of the years ultraviolet, greenery, masala, chillipepper, tangerine tango
     * adding lighten and darken functions
