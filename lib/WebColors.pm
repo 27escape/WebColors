@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-WebColors
+WebColors - Library for WebColors.
 
 =head1 SYNOPSIS
 
@@ -1216,6 +1216,10 @@ sub darken
 
 
 =back
+
+=head1 LICENSE
+
+Same as Perl 5.
 
 =cut
 
