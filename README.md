@@ -23,10 +23,20 @@ Open color names have been included, "RED 1" would be used as oc-red-1
 
 A few interesting pantone colors have been added, because I like them, the best way to find out what is available is to use the list_webcolors function.
 
-See Also
+### See Also
 
 * Google material colors <http://www.google.com/design/spec/style/color.html>
 * Open color <https://yeun.github.io/open-color/>
+
+## Installation
+
+From CPAN
+
+    dzil install WebColors
+
+From downloaded repo
+
+    dzil install ./
 
 ## Public Functions
 
