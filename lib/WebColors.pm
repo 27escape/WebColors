@@ -262,6 +262,10 @@ my %web_colors = (
     'tangerine-tango' => [ 221, 65,  36 ],
     chillipepper      => [ 168, 41,  24 ],
     'chilli-pepper'   => [ 168, 41,  24 ],
+    'classic blue'    => [ 15, 76, 129],
+    'rose quartz'     => [ 247, 202, 201],
+    serenity          => [ 145, 168, 208],
+    'radiant orchid'  => [ 173, 94, 153],
 
     # google material colors from http://www.google.com/design/spec/style/color.html
 

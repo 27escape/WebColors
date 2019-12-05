@@ -1,4 +1,5 @@
-
+0.4.9
+    * Adding Pantone colors Classic Blue, radiant orchid, serentity and rose quartz
 0.4.8
     * adding tailwindcss.com color names, they only work well with HTML
     * adding perl App::ColorNamer color names
