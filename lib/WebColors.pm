@@ -838,6 +838,30 @@ my %web_colors = (
     serenity          => [ 145, 168, 208 ],
     'radiant orchid'  => [ 173, 94,  153 ],
     'radiant-orchid'  => [ 173, 94,  153 ],
+    # some more colors of the year back to 2000
+    'pantone-emerald' => [ 0,148,115],
+    honeysuckle       => [ 207, 84, 118],
+    'pantone-turquoise'=> [ 69, 181, 170],
+    'blue iris'       => [ 91, 105, 165],
+    'blue-iris'       => [ 91, 105, 165],
+    'sand dollar'     => [ 223, 207, 190],
+    'sand-dollar'     => [ 223, 207, 190],
+    'blue turquoise'  => [ 0, 194, 186],
+    'blue-turquoise'  => [ 0, 194, 186],
+    'tigerlily'       => [ 226, 101, 77],
+    'aqua sky'        => [ 123, 196, 196],
+    'aqua-sky'        => [ 123, 196, 196],
+    'true red'        => [ 191, 25, 50],
+    'true-red'        => [ 191, 25, 50],
+    'fushia rose'     => [ 195, 68, 122],
+    'fushia-rose'     => [ 195, 68, 122],
+    'cerulean blue'   => [ 42, 82, 190],
+    'cerulean-blue'   => [ 42, 82, 190],
+    # new for 2021
+    'ultimate gray' => [ 147, 149, 151],
+    'ultimate-gray' => [ 147, 149, 151],
+    'illuminating'  => [ 245, 223, 77],
+
 
     # lots of pantone colors
 
