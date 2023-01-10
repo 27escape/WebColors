@@ -4889,6 +4889,14 @@ my %web_colors = (
     "black7c"         => [ 61,  57,  53 ],
     "black-7-c"       => [ 61,  57,  53 ],
 
+    # california republic colors
+    # https://en.wikipedia.org/wiki/Flag_of_California#Colors
+    # the pantone colors from that link matching these do not
+    # match the rgb values I have for those names
+    "oldgloryred"     => [ 183, 18,  52 ],    # pantone 200
+    "maplesugar"      => [ 189, 138, 94 ],    # pantone 729c
+    "seal"            => [ 88,  69,  40 ],    # pantone 462c
+    "irishgreen"      => [ 0,   133, 66 ],    # pantone 348
 ) ;
 
 =head1 Public Functions
